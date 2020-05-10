@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+nav {
+  display: flex;
+  align-items: center;
+  height: 7rem;
+  padding: $content-padding;
+  justify-content: space-between;
+  box-shadow: 0 1px 5px $color-dark;
+  font-size: 1.6rem;
+}
+
+.logo {
+  color: $color-primary;
+  font-size: 2rem;
+}
+
+.search {
+  width: 40%;
+  text-align: center;
+
+  i {
+    cursor: pointer;
+    color: $color-grey-light;
+  }
+}
+
+input {
+  border-radius: 5rem;
+  padding: 1rem;
+  border: 2px solid $color-grey-light;
+  margin-right: -3rem;
+  width: 90%;
+  transition: all .2s linear;
+
+  &:focus {
+    outline: none;
+    width: 100%;
+  }
+}

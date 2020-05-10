@@ -1,0 +1,71 @@
+@import '../../styles/variables';
+
+.login-container {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, rgba($color-primary-lighter, .6), rgba($color-primary-dark, .6)),
+    url('../../../assets/images/login-background.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  justify-content: flex-end;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
+}
+
+.login-box {
+  height: 40rem;
+  width: 35rem;
+  background-color: rgba($color-white, .7);
+  margin: 0 10rem;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px $color-black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0;
+  }
+}
+
+.app-heading {
+  font-size: 6rem;
+  font-weight: 100;
+  color: $color-primary;
+  text-transform: uppercase;
+
+  @media (max-width: 600px) {
+    color: white;
+  }
+}
+
+.login-button {
+
+  transition: all .2s linear;
+
+  &:visited,
+  &:link {
+    text-decoration: none;
+    color: $color-white;
+    background-color: $color-primary;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    box-shadow: 0px 2px 4px $color-black;
+    border-radius: 10rem;
+  }
+
+  &:hover {
+    box-shadow: 0px 4px 8px $color-black;
+    opacity: 0.7;
+  }
+
+  i {
+    margin-right: 1rem;
+  }
+}
