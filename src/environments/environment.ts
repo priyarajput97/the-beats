@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiBase: 'http://api.spotify.com'
+  apiBase: 'https://api.spotify.com'
 };

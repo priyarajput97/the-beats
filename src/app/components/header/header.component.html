@@ -4,5 +4,14 @@
     <input [(ngModel)]="searchKeyword" placeholder="Search songs" (keyup.enter)="search()" />
     <i class="fa fa-search" (click)="search()"></i>
   </div>
-  <div class="logo">Priya</div>
+  <div class="account-details">
+    <ng-container *ngIf="accountDetails">
+      <span class="account-details-name">{{accountDetails.display_name}}</span>
+      <img *ngIf="accountDetails.images && accountDetails.images.length; else noImage"
+        [src]="accountDetails.images[0].url" class="account-details-image">
+      <ng-template #noImage>
+        <i class="far fa-user-circle fa-2x"></i>
+      </ng-template>
+    </ng-container>
+  </div>
 </nav>
