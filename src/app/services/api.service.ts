@@ -12,4 +12,20 @@ export class ApiService {
   getAccountDetails(): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/me`).toPromise();
   }
+
+  getNewReleases(): Promise<any> {
+    return this.http.get(`${environment.apiBase}/v1/browse/new-releases`).toPromise();
+  }
+
+  getAllCategories(): Promise<any> {
+    return this.http.get(`${environment.apiBase}/v1/browse/categories`).toPromise();
+  }
+
+  getPlaylistsByCategory(categoryId) {
+    return this.http.get(`${environment.apiBase}/v1/browse/categories/${categoryId}/playlists`).toPromise();
+  }
+
+  getTracksByPlaylist(playlistId){
+    return this.http.get(`${environment.apiBase}/v1/playlists/${playlistId}/tracks`).toPromise();
+  }
 }

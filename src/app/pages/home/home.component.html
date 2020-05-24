@@ -1,1 +1,25 @@
-<p>home works!</p>
+<main>
+  <section *ngIf="newReleases && newReleases.length">
+    <swiper [config]="corouselConfig">
+      <div *ngFor="let track of newReleases | slice:0:10" class="corousel">
+        <img class="corousel-image" [src]="track.images[0].url" />
+        <div class="corousel-title">
+          <span class="corousel-title-name">{{track.name}}</span>
+          <span class="corousel-title-info">{{track.type | titlecase}} by
+            <span *ngFor="let artist of track.artists">{{artist.name}}&nbsp;</span>
+          </span>
+        </div>
+      </div>
+    </swiper>
+  </section>
+
+  <section *ngFor="let category of categories">
+    <h1 class="category-title">{{category.title}}</h1>
+    <swiper *ngIf="category.tracks && category.tracks.length" [config]="swiperConfig">
+      <div *ngFor="let track of category.tracks | slice:0:10" class="tracks-container">
+        <img class="track-image" [src]="track?.track?.album?.images[0].url" />
+        <span class="track-title">{{track?.track?.name}}</span>
+      </div>
+    </swiper>
+  </section>
+</main>

@@ -8,6 +8,11 @@ nav {
   justify-content: space-between;
   box-shadow: 0 1px 5px $color-dark;
   font-size: 1.6rem;
+  background-color: $color-white;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {

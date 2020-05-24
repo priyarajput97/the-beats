@@ -1,0 +1,14 @@
+@import 'src/app/styles/variables';
+
+.app-background {
+  background-image: url('src/assets/images/app-background.jpg');
+  background-size: contain;
+  min-height: 100vh;
+}
+
+.app-content {
+  background-color: $color-white;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 2.5rem 2.5rem 2.5rem;
+}
