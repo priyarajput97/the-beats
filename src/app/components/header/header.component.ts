@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonService } from 'src/app/services/common.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +14,16 @@ export class HeaderComponent implements OnInit {
   accountDetails: any;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private apiService: ApiService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(param => {
+      this.searchKeyword = param && param.keyword;
+    });
     this.getMyAccountDetails();
   }
 
@@ -30,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   search() {
-    console.log(this.searchKeyword)
+    this.searchKeyword && this.router.navigate(['/dashboard/search'], { queryParams: { keyword: this.searchKeyword } });
   }
 
 }

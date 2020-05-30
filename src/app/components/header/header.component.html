@@ -1,5 +1,5 @@
 <nav>
-  <div class="logo">Logo</div>
+  <div class="logo">The Beats</div>
   <div class="search">
     <input [(ngModel)]="searchKeyword" placeholder="Search songs" (keyup.enter)="search()" />
     <i class="fa fa-search" (click)="search()"></i>
@@ -10,7 +10,9 @@
       <img *ngIf="accountDetails.images && accountDetails.images.length; else noImage"
         [src]="accountDetails.images[0].url" class="account-details-image">
       <ng-template #noImage>
-        <i class="far fa-user-circle fa-2x"></i>
+        <div class="user-icon">
+          <i class="fa fa-user"></i>
+        </div>
       </ng-template>
     </ng-container>
   </div>

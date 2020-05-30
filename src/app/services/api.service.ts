@@ -21,11 +21,15 @@ export class ApiService {
     return this.http.get(`${environment.apiBase}/v1/browse/categories`).toPromise();
   }
 
-  getPlaylistsByCategory(categoryId) {
+  getPlaylistsByCategory(categoryId): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/browse/categories/${categoryId}/playlists`).toPromise();
   }
 
-  getTracksByPlaylist(playlistId){
+  getTracksByPlaylist(playlistId): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/playlists/${playlistId}/tracks`).toPromise();
+  }
+
+  getSearchResults(keyword): Promise<any> {
+    return this.http.get(`${environment.apiBase}/v1/search?q=${keyword}&type=track,album,artist,playlist`).toPromise();
   }
 }
