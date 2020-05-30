@@ -3,7 +3,7 @@
 .login-container {
   display: flex;
   align-items: center;
-  background-image: linear-gradient(to bottom right, rgba($color-primary-lighter, .6), rgba($color-primary-dark, .6)),
+  background-image: linear-gradient(to bottom right, rgba($color-primary-light, .3), rgba($color-primary-dark, .3)),
     url('../../../assets/images/login-background.jpg');
   background-position: center;
   background-size: cover;
@@ -48,12 +48,12 @@
 .login-button {
 
   transition: all .2s linear;
+  background-image: linear-gradient(to top right, $color-primary-dark, $color-primary-light);
 
   &:visited,
   &:link {
     text-decoration: none;
     color: $color-white;
-    background-color: $color-primary;
     padding: 1rem 2rem;
     font-size: 2rem;
     box-shadow: 0px 2px 4px $color-black;
@@ -62,7 +62,7 @@
 
   &:hover {
     box-shadow: 0px 4px 8px $color-black;
-    opacity: 0.7;
+    opacity: 0.9;
   }
 
   i {

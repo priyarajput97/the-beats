@@ -5,15 +5,22 @@
     <i class="fa fa-search" (click)="search()"></i>
   </div>
   <div class="account-details">
+    <div class="account-details-item">
+      <mat-icon>queue_music</mat-icon>
+    </div>
     <ng-container *ngIf="accountDetails">
-      <span class="account-details-name">{{accountDetails.display_name}}</span>
       <img *ngIf="accountDetails.images && accountDetails.images.length; else noImage"
         [src]="accountDetails.images[0].url" class="account-details-image">
       <ng-template #noImage>
-        <div class="user-icon">
+        <div class="account-details-item">
           <i class="fa fa-user"></i>
         </div>
       </ng-template>
     </ng-container>
+    <span class="account-details-name">{{accountDetails?.display_name}}</span>
+    <mat-icon class="account-details-dropdown" [matMenuTriggerFor]="menu">expand_more</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="signOut()">Sign out</button>
+    </mat-menu>
   </div>
 </nav>

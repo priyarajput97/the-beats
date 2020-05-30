@@ -1,7 +1,8 @@
 @import 'src/app/styles/variables';
 
 .app-background {
-  background-image: url('src/assets/images/app-background.jpg');
+  // background-image: url('src/assets/images/app-background.jpg');
+  background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark);
   background-size: contain;
   min-height: 100vh;
 }

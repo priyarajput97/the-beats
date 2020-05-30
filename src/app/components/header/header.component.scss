@@ -4,11 +4,11 @@ nav {
   display: flex;
   align-items: center;
   height: 7rem;
-  padding: $content-padding;
+  padding: 2rem;
   justify-content: space-between;
-  box-shadow: 0 1px 5px $color-dark;
+  box-shadow: 0 1px 5px $color-grey-dark-1;
   font-size: 1.6rem;
-  background-color: $color-white;
+  background-color: $color-grey-dark-1;
   position: sticky;
   width: 100%;
   top: 0;
@@ -18,7 +18,7 @@ nav {
 .logo {
   color: $color-primary;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 .search {
@@ -27,21 +27,26 @@ nav {
 
   i {
     cursor: pointer;
-    color: $color-grey-light;
+    color: $color-grey-dark-2;
   }
 }
 
 input {
+  font-family: 'Poppins', sans-serif;
   border-radius: 5rem;
   padding: 1rem;
-  border: 2px solid $color-grey-light;
+  border: 2px solid $color-grey-dark-2;
+  color: $color-grey-dark-2;
   margin-right: -3rem;
   width: 90%;
   transition: all .2s linear;
+  background-color: $color-grey-dark-1;
+
 
   &:focus {
     outline: none;
     width: 100%;
+    color: $color-white
   }
 }
 
@@ -49,11 +54,39 @@ input {
   display: flex;
   align-items: center;
 
-  &-name {
+  &-item {
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
     margin-right: 1rem;
+    background-image: linear-gradient(to top right, $color-primary-dark, $color-primary-light);
+    transition: height .3s ease;
+    cursor: pointer;
+
+    mat-icon {
+      height: 3rem;
+      width: 3rem;
+      font-size: 3rem;
+    }
+
+    i {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      height: 7rem;
+      border-radius: 0;
+    }
+  }
+
+  &-name {
     color: $color-primary;
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 300;
   }
 
   &-image {
@@ -64,18 +97,8 @@ input {
     object-position: center;
   }
 
-  .user-icon {
-    background-image: linear-gradient(to top right, $color-primary-dark, $color-primary-lighter);
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    i {
-      font-size: 2rem;;
-      color: $color-white;
-    }
+  &-dropdown {
+    color: $color-primary;
+    cursor: pointer;
   }
 }

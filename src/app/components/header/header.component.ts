@@ -39,4 +39,8 @@ export class HeaderComponent implements OnInit {
     this.searchKeyword && this.router.navigate(['/dashboard/search'], { queryParams: { keyword: this.searchKeyword } });
   }
 
+  signOut() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }
