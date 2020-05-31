@@ -32,4 +32,8 @@ export class ApiService {
   getSearchResults(keyword): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/search?q=${keyword}&type=track,album,artist,playlist`).toPromise();
   }
+
+  getArtist(id) {
+    return this.http.get(`${environment.apiBase}/v1/artists/${id}`).toPromise();
+  }
 }

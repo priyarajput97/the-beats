@@ -17,8 +17,8 @@
     <div class="search-results-list flex-row">
       <div *ngFor="let artist of artists | slice:0:5" class="artist">
         <ng-container *ngIf="artist.images && artist.images.length">
-          <img class="artist-image" [src]="artist.images[0].url">
-          <span class="artist-title">{{artist.name}}</span>
+          <img class="artist-image" [src]="artist.images[0].url" (click)="seeArtist(artist)">
+          <span class="artist-title" (click)="seeArtist(artist)">{{artist.name}}</span>
           <span class="artist-followers">{{artist.followers.total}} followers</span>
         </ng-container>
       </div>

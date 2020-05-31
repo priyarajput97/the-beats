@@ -33,16 +33,30 @@
     height: 15rem;
     border-radius: 50%;
     margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all .3s linear;
   }
 
   &-title {
     font-size: 1.4rem;
     font-weight: 400;
+    cursor: pointer;
+    transition: all .3s linear;
   }
 
   &-followers {
     font-size: 1.2rem;
     color: $color-grey-dark-2;
+  }
+
+  &:hover {
+    .artist-image {
+      filter: brightness(0.5);
+    }
+
+    .artist-title {
+      color: $color-primary
+    }
   }
 }
 

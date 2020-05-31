@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -18,7 +18,8 @@ export class SearchComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,5 +38,9 @@ export class SearchComponent implements OnInit {
     } catch (error) {
       this.commonService.handleError(error);
     }
+  }
+
+  seeArtist(artist) {
+    artist && artist.id && this.router.navigate([`/dashboard/artist/${artist.id}`]);
   }
 }
