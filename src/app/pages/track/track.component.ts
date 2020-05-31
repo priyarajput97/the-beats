@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CommonService } from 'src/app/services/common.service';
 import { ApiService } from 'src/app/services/api.service';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
-  selector: 'app-artist',
-  templateUrl: './artist.component.html',
-  styleUrls: ['./artist.component.scss']
+  selector: 'app-track',
+  templateUrl: './track.component.html',
+  styleUrls: ['./track.component.scss']
 })
-export class ArtistComponent implements OnInit {
-  
-  artist: any;
-  
+export class TrackComponent implements OnInit {
+
+  track: object;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService,
@@ -19,14 +19,14 @@ export class ArtistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getArtist(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.getTrack(this.activatedRoute.snapshot.paramMap.get('id'));
   }
 
-  async getArtist(id) {
+  async getTrack(id) {
     try {
       if (id) {
-        this.artist = await this.apiService.getArtist(id);
-        console.log(this.artist);
+        this.track = await this.apiService.getTrack(id);
+        console.log(this.track);
       }
     } catch (error) {
       this.commonService.handleError(error);

@@ -36,4 +36,8 @@ export class ApiService {
   getArtist(id) {
     return this.http.get(`${environment.apiBase}/v1/artists/${id}`).toPromise();
   }
+
+  getTrack(id) {
+    return this.http.get(`${environment.apiBase}/v1/tracks/${id}`).toPromise();
+  }
 }

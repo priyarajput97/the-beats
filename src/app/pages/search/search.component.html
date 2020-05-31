@@ -3,9 +3,9 @@
     <h2 class="search-results-heading">Tracks</h2>
     <div class="search-results-list">
       <div *ngFor="let track of tracks | slice:0:5" class="list-element">
-        <img class="list-element-image" [src]="track?.album?.images[0]?.url">
+        <img class="list-element-image" [src]="track?.album?.images[0]?.url" (click)="seeTrack(track.id)">
         <div class="list-element-info">
-          <span class="list-element-info-title">{{track.name}}</span>
+          <span class="list-element-info-title" (click)="seeTrack(track.id)">{{track.name}}</span>
           <span class="list-element-info-artist">{{track?.artists[0]?.name}}</span>
         </div>
       </div>
@@ -17,8 +17,8 @@
     <div class="search-results-list flex-row">
       <div *ngFor="let artist of artists | slice:0:5" class="artist">
         <ng-container *ngIf="artist.images && artist.images.length">
-          <img class="artist-image" [src]="artist.images[0].url" (click)="seeArtist(artist)">
-          <span class="artist-title" (click)="seeArtist(artist)">{{artist.name}}</span>
+          <img class="artist-image" [src]="artist.images[0].url" (click)="seeArtist(artist.id)">
+          <span class="artist-title" (click)="seeArtist(artist.id)">{{artist.name}}</span>
           <span class="artist-followers">{{artist.followers.total}} followers</span>
         </ng-container>
       </div>

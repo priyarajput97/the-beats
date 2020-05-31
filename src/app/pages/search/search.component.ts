@@ -40,7 +40,11 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  seeArtist(artist) {
-    artist && artist.id && this.router.navigate([`/dashboard/artist/${artist.id}`]);
+  seeArtist(artistId) {
+    artistId && this.router.navigate([`/dashboard/artist/${artistId}`]);
+  }
+
+  seeTrack(trackId) {
+    trackId && this.router.navigate([`/dashboard/track/${trackId}`]);
   }
 }
