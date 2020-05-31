@@ -1,15 +1,14 @@
 @import 'src/app/styles/variables';
 
 .app-background {
-  // background-image: url('src/assets/images/app-background.jpg');
   background-image: linear-gradient(to bottom right, $color-primary-light, $color-primary-dark);
-  background-size: contain;
+  background-size: cover;
   min-height: 100vh;
 }
 
 .app-content {
   background-color: $color-white;
-  min-height: calc(100vh - 7rem);
+  min-height: calc(100vh - 13rem);
   max-width: 90rem;
   margin: 0 auto;
   padding: 0 2.5rem 2.5rem 2.5rem;
