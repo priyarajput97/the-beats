@@ -1,5 +1,5 @@
 <nav>
-  <div class="logo">The Beats</div>
+  <div class="logo" [routerLink]="['/dashboard']">The Beats</div>
   <div class="search">
     <input [(ngModel)]="searchKeyword" placeholder="Search" (keyup.enter)="search()" />
     <i class="fa fa-search" (click)="search()"></i>

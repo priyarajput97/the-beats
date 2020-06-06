@@ -1,5 +1,12 @@
 @import 'src/app/styles/variables';
 
+.search-container {
+  background-color: $color-grey-light-2;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
 .search-results {
   padding-top: 1rem;
 

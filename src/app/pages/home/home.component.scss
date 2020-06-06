@@ -1,37 +1,95 @@
 @import 'src/app/styles/variables';
 
+.banner-container {
+  display: flex;
+  height: calc(100vh - 9rem);
+  margin: 1rem;
+
+  .banner {
+    flex: 50% 0 0;
+    height: calc(100% - 10rem);
+  }
+}
+
+.new-releases {
+  border-right: .5px solid $color-white;
+  padding-right: 1rem;
+
+  &-heading {
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: $color-white;
+    text-align: right;
+  }
+}
+
+.top-artists {
+  margin-left: 1rem;
+  border-left: .5px solid $color-white;
+  align-self: flex-end;
+
+  &-heading {
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: $color-white;
+    margin-left: 1rem;
+  }
+}
+
 .corousel {
   position: relative;
 
   &-image {
     width: 100%;
-    height: calc(100vh - 7rem);
+    height: calc(100% - 6rem);
+    transition: all .3s;
   }
 
   &-title {
+    opacity: 0;
     position: absolute;
-    bottom: 3rem;
+    bottom: 7rem;
     left: 3rem;
     display: flex;
     flex-direction: column;
     color: $color-white;
-    text-shadow: .5rem .5rem 1rem $color-black;
+    transition: all .3s;
 
     &-name {
-      font-size: 4rem;
+      font-size: 3rem;
     }
 
     &-info {
-      font-size: 3rem;
+      font-size: 2rem;
+    }
+  }
+
+  &:hover {
+    .corousel-image {
+      filter: brightness(0.5);
+    }
+
+    .corousel-title {
+      opacity: 1;
     }
   }
 }
 
-.category-title {
-  color: $color-primary;
-  font-size: 3rem;
-  font-weight: 300;
-  margin: 1.5rem 0;
+.categories-container {
+  background-color: $color-grey-light-2;
+}
+
+.category {
+  max-width: 995px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  &-title {
+    color: $color-primary;
+    font-size: 3rem;
+    font-weight: 300;
+    margin: 1.5rem 0;
+  }
 }
 
 .tracks-container {

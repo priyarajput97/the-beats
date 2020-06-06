@@ -1,3 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import './app/styles/base';
 @import './app/styles/variables';
+
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $color-white !important;
+}

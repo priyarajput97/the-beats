@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   };
 
   swiperConfig = {
-    slidesPerView: 5,
+    slidesPerView: 6,
     spaceBetween: 10,
     freeMode: true,
   };
