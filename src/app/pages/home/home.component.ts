@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonService } from 'src/app/services/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -43,7 +44,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -70,5 +72,9 @@ export class HomeComponent implements OnInit {
     } catch (error) {
       this.commonService.handleError(error);
     }
+  }
+
+  seeTrack(trackId) {
+    trackId && this.router.navigate([`/dashboard/track/${trackId}`]);
   }
 }

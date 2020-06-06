@@ -23,9 +23,11 @@
     <div *ngFor="let category of categories" class="category">
       <h1 class=" category-title">{{category.title}}</h1>
       <swiper *ngIf="category.tracks && category.tracks.length" [config]="swiperConfig">
-        <div *ngFor="let track of category.tracks | slice:0:10" class="tracks-container">
+        <div *ngFor="let track of category.tracks | slice:0:15" class="tracks-container" (click)="seeTrack(track?.track?.id)">
           <img class="track-image" [src]="track?.track?.album?.images[0].url" />
-          <span class="track-title">{{track?.track?.name}}</span>
+          <i class="fas fa-play fa-3x track-play-icon"></i>
+          <div class="track-title">{{track?.track?.name}}</div>
+          <div class="track-sub-title">{{track?.track?.artists[0]?.name}}</div>
         </div>
       </swiper>
     </div>
