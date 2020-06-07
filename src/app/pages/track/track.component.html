@@ -1,1 +1,26 @@
-<p>track works!</p>
+<main *ngIf="track" class="track-container">
+  <section class="track-image">
+    <img [src]="track?.album?.images[0]?.url" />
+  </section>
+
+  <section class="track">
+    <div class="track-title">{{track?.name}}
+      <mat-icon *ngIf="track.explicit" matTooltip="Explicit">explicit</mat-icon>
+    </div>
+
+    <div class="track-artist">
+      <span *ngFor="let artist of track?.artists; last as isLast">
+        {{artist?.name}}<span *ngIf="!isLast">,</span>
+      </span>
+    </div>
+
+    <div class="track-info">{{track.album?.album_type | uppercase}}
+      <span *ngIf="track.album?.album_type === 'album'"> - {{track.album?.name}}</span>
+    </div>
+
+    <div class="track-info">Released on <i>{{track.album?.release_date | date:'longDate'}}</i></div>
+
+    <audio controls loop="true" [src]="track.preview_url" class="track-audio">
+      Your browser doesn't support audio element</audio>
+  </section>
+</main>

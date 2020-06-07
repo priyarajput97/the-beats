@@ -10,7 +10,7 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class TrackComponent implements OnInit {
 
-  track: object;
+  track: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,10 +24,7 @@ export class TrackComponent implements OnInit {
 
   async getTrack(id) {
     try {
-      if (id) {
-        this.track = await this.apiService.getTrack(id);
-        console.log(this.track);
-      }
+      if (id) this.track = await this.apiService.getTrack(id);
     } catch (error) {
       this.commonService.handleError(error);
     }
