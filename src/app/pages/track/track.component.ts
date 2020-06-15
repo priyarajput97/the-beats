@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -15,7 +15,8 @@ export class TrackComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,5 +29,9 @@ export class TrackComponent implements OnInit {
     } catch (error) {
       this.commonService.handleError(error);
     }
+  }
+
+  seeArtist(artistId) {
+    artistId && this.router.navigate([`/dashboard/artist/${artistId}`]);
   }
 }

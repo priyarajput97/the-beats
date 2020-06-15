@@ -9,7 +9,8 @@
     </div>
 
     <div class="track-artist">
-      <span *ngFor="let artist of track?.artists; last as isLast">
+      <span *ngFor="let artist of track?.artists; last as isLast" (click)="seeArtist(artist?.id)"
+        class="cursor-pointer">
         {{artist?.name}}<span *ngIf="!isLast">,</span>
       </span>
     </div>

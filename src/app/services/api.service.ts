@@ -33,11 +33,15 @@ export class ApiService {
     return this.http.get(`${environment.apiBase}/v1/search?q=${keyword}&type=track,album,artist,playlist`).toPromise();
   }
 
-  getArtist(id) {
+  getArtist(id): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/artists/${id}`).toPromise();
   }
 
-  getTrack(id) {
+  getAlbumByArtist(id): Promise<any> {
+    return this.http.get(`${environment.apiBase}/v1/artists/${id}/top-tracks?country=IN`).toPromise();
+  }
+
+  getTrack(id): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/tracks/${id}`).toPromise();
   }
 }

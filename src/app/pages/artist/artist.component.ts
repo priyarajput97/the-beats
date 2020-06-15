@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -9,13 +9,22 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./artist.component.scss']
 })
 export class ArtistComponent implements OnInit {
-  
+
   artist: any;
-  
+  artistTracks: any;
+
+  swiperConfig = {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    freeMode: true,
+  };
+
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -26,10 +35,15 @@ export class ArtistComponent implements OnInit {
     try {
       if (id) {
         this.artist = await this.apiService.getArtist(id);
-        console.log(this.artist);
+        const { tracks } = await this.apiService.getAlbumByArtist(id);
+        this.artistTracks = tracks;
       }
     } catch (error) {
       this.commonService.handleError(error);
     }
+  }
+
+  seeTrack(trackId) {
+    trackId && this.router.navigate([`/dashboard/track/${trackId}`]);
   }
 }

@@ -1,1 +1,27 @@
-{{artist?.name}}
+<main *ngIf="artist">
+  <section class="artist-container">
+    <img class="artist-image" [src]="artist.images[0]?.url">
+    <div class="artist">
+      <div class="artist-title">{{artist.name}}</div>
+      <div class="artist-info">
+        Genres -
+        <span *ngFor="let genre of artist.genres; last as isLast">
+          {{genre | titlecase}}<span *ngIf="!isLast">,</span>
+        </span>
+      </div>
+      <div class="artist-info">{{artist.followers?.total}} Followers</div>
+    </div>
+  </section>
+
+  <section class="artist-tracks">
+    <h1 class="artist-tracks-title">Popular tracks</h1>
+    <swiper *ngIf="artistTracks?.length" [config]="swiperConfig">
+      <div *ngFor="let track of artistTracks | slice:0:15" class="tracks-container" (click)="seeTrack(track?.id)">
+        <img class="track-image" [src]="track?.album?.images[0].url" />
+        <i class="fas fa-play fa-4x track-play-icon"></i>
+        <div class="track-title">{{track?.name}}</div>
+        <div class="track-sub-title">{{track?.artists[0]?.name}}</div>
+      </div>
+    </swiper>
+  </section>
+</main>
