@@ -44,4 +44,8 @@ export class ApiService {
   getTrack(id): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/tracks/${id}`).toPromise();
   }
+
+  getAlbum(id): Promise<any> {
+    return this.http.get(`${environment.apiBase}/v1/albums/${id}`).toPromise();
+  }
 }

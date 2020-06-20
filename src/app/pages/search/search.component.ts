@@ -47,4 +47,8 @@ export class SearchComponent implements OnInit {
   seeTrack(trackId) {
     trackId && this.router.navigate([`/dashboard/track/${trackId}`]);
   }
+
+  seeAlbum(albumId) {
+    albumId && this.router.navigate([`/dashboard/album/${albumId}`]);
+  }
 }

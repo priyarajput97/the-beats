@@ -1,0 +1,67 @@
+@import '../../styles/variables';
+
+main {
+  margin: 4rem;
+}
+
+.album-container {
+  display: flex;
+}
+
+.album {
+  color: $color-white;
+
+  &-image {
+    height: 50rem;
+    width: 50rem;
+    box-shadow: 2px 4px 10px $color-black;
+    border-radius: 5px;
+    margin-right: 4rem;
+  }
+
+  &-title {
+    font-size: 5rem;
+    font-weight: 200;
+  }
+
+  &-artist {
+    font-size: 2.4rem;
+    margin-left: 5px;
+    font-weight: 500;
+  }
+
+  &-info {
+    font-size: 1.6rem;
+    margin-left: 5px;
+  }
+
+  &-tracks {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.list-element {
+  display: flex;
+  margin-bottom: 1rem;
+  background-image: linear-gradient(to bottom, $color-grey-light-1, $color-grey-light-4);
+  color: $color-primary;
+  box-shadow: 1px 2px 5px $color-black;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &-icon {
+    height: 4rem;
+    width: 4rem;
+    font-size: 4rem;
+    margin-right: 1rem;
+  }
+
+  &-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}

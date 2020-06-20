@@ -28,7 +28,7 @@
   <section *ngIf="albums && albums.length" class="search-results">
     <h2 class="search-results-heading">Albums</h2>
     <div class="search-results-list">
-      <div *ngFor="let album of albums | slice:0:5" class="list-element">
+      <div *ngFor="let album of albums | slice:0:5" class="list-element" (click)="seeAlbum(album.id)">
         <img class="list-element-image" [src]="album?.images[0]?.url">
         <div class="list-element-info">
           <span class="list-element-info-title">{{album.name}}</span>
