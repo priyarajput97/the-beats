@@ -18,7 +18,7 @@
     <div *ngIf="album?.tracks?.items?.length" class="album-tracks">
       <div *ngFor="let track of album.tracks.items" class="list-element" (click)="seeTrack(track.id)">
         <mat-icon class="list-element-icon">play_circle_filled</mat-icon>
-        <div class="list-element-title" (click)="seeTrack(track.id)">{{track.name}}</div>
+        <div class="list-element-title">{{track.name}}</div>
       </div>
     </div>
 

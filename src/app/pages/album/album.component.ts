@@ -27,6 +27,7 @@ export class AlbumComponent implements OnInit {
     try {
       if (id) {
         this.album = await this.apiService.getAlbum(id);
+        console.log(this.album)
       }
     } catch (error) {
       this.commonService.handleError(error);
