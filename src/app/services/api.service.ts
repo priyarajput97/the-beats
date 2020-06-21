@@ -49,8 +49,20 @@ export class ApiService {
     return this.http.get(`${environment.apiBase}/v1/albums/${id}`).toPromise();
   }
 
+  getMyPlaylists(): Promise<any> {
+    return this.http.get(`${environment.apiBase}/v1/me/playlists`).toPromise();
+  }
+
   createPlaylist(body): Promise<any> {
     const userId = localStorage.getItem('userId')
     return this.http.post(`${environment.apiBase}/v1/users/${userId}/playlists`, body).toPromise();
+  }
+
+  editPlaylist(playlistId, body): Promise<any> {
+    return this.http.put(`${environment.apiBase}/v1/playlists/${playlistId}`, body).toPromise();
+  }
+
+  deletePlaylist(playlistId): Promise<any> {
+    return this.http.delete(`${environment.apiBase}/v1/playlists/${playlistId}/followers`).toPromise();
   }
 }

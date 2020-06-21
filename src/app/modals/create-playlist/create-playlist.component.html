@@ -9,10 +9,10 @@
       <mat-label>Description</mat-label>
       <input matInput formControlName="description" autocomplete="off">
     </mat-form-field>
-    <mat-slide-toggle formControlName="public" color="primary">Public</mat-slide-toggle>
   </form>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button mat-dialog-close>Cancel</button>
-  <button mat-raised-button color="primary" [disabled]="playlistForm.invalid" (click)="createPlaylist()">Create</button>
+  <button mat-raised-button color="primary" [disabled]="playlistForm.invalid"
+    (click)="createPlaylist()">{{data ? 'Edit' :'Create'}}</button>
 </div>
