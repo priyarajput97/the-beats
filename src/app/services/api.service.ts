@@ -48,4 +48,9 @@ export class ApiService {
   getAlbum(id): Promise<any> {
     return this.http.get(`${environment.apiBase}/v1/albums/${id}`).toPromise();
   }
+
+  createPlaylist(body): Promise<any> {
+    const userId = localStorage.getItem('userId')
+    return this.http.post(`${environment.apiBase}/v1/users/${userId}/playlists`, body).toPromise();
+  }
 }

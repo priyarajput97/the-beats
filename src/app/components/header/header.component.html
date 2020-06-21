@@ -5,7 +5,7 @@
     <i class="fa fa-search" (click)="search()"></i>
   </div>
   <div class="account-details">
-    <div class="account-details-item">
+    <div class="account-details-item" [routerLink]="['/dashboard/my-playlists']">
       <mat-icon>queue_music</mat-icon>
     </div>
     <ng-container *ngIf="accountDetails">

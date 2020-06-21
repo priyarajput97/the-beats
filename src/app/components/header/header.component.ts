@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
   async getMyAccountDetails() {
     try {
       this.accountDetails = await this.apiService.getAccountDetails();
+      localStorage.setItem('userId', this.accountDetails.id);
     } catch (error) {
       this.commonService.handleError(error);
     }
