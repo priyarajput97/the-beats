@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatIconModule,
     MatInputModule,
     MatMenuModule,
+    MatProgressBarModule,
     MatSlideToggleModule,
     MatSnackBarModule,
     MatTooltipModule
@@ -31,6 +33,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatIconModule,
     MatInputModule,
     MatMenuModule,
+    MatProgressBarModule,
     MatSlideToggleModule,
     MatSnackBarModule,
     MatTooltipModule
