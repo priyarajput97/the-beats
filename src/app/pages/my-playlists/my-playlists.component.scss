@@ -50,12 +50,21 @@ main {
   padding: 1.5rem;
   border-radius: 5px;
   transition: all .2s ease;
-  
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    flex-grow: 1;
+  }
+
   &-title {
     font-size: 2rem;
     font-weight: 500;
-    cursor: pointer;
-    flex-grow: 1;
+  }
+
+  &-tracks-count {
+    font-size: 1.4rem;
   }
 
   &-icon {

@@ -65,4 +65,8 @@ export class ApiService {
   deletePlaylist(playlistId): Promise<any> {
     return this.http.delete(`${environment.apiBase}/v1/playlists/${playlistId}/followers`).toPromise();
   }
+
+  addSongToPlaylist(playlistId, trackUri): Promise<any> {
+    return this.http.post(`${environment.apiBase}/v1/playlists/${playlistId}/tracks?uris=${trackUri}`, {}).toPromise();
+  }
 }

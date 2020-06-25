@@ -8,7 +8,11 @@
 
   <section class="playlists-container">
     <div *ngFor="let playlist of playlists" class="playlist">
-      <span class="playlist-title">{{playlist.name}}</span>
+      <div class="playlist-info">
+        <span class="playlist-title">{{playlist.name}}</span>
+        <span class="playlist-tracks-count">{{playlist.tracks?.total}}
+          {{playlist.tracks?.total > 1 ? 'Songs' : 'Song'}}</span>
+      </div>
       <div class="playlist-icon" (click)="editPlaylist(playlist)">
         <mat-icon>edit</mat-icon>
       </div>

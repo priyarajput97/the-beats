@@ -6,6 +6,10 @@
   <section class="track">
     <div class="track-title">{{track?.name}}
       <mat-icon *ngIf="track.explicit" matTooltip="Explicit">explicit</mat-icon>
+      <mat-icon class="track-actions" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="addToPlaylist()">Add this song to playlist</button>
+      </mat-menu>
     </div>
 
     <div class="track-artist">

@@ -4,9 +4,14 @@ import { CreatePlaylistComponent } from './create-playlist/create-playlist.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { ConfirmationPopupComponent } from './confirmation-popup/confirmation-popup.component';
+import { AddSongToPlaylistComponent } from './add-song-to-playlist/add-song-to-playlist.component';
 
 @NgModule({
-  declarations: [CreatePlaylistComponent, ConfirmationPopupComponent],
+  declarations: [
+    CreatePlaylistComponent,
+    ConfirmationPopupComponent,
+    AddSongToPlaylistComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
