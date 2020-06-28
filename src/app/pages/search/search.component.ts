@@ -51,4 +51,9 @@ export class SearchComponent implements OnInit {
   seeAlbum(albumId) {
     albumId && this.router.navigate([`/dashboard/album/${albumId}`]);
   }
+
+  seePlaylist(playlistId, playlistTitle) {
+    console.log(playlistId)
+    playlistId && this.router.navigate([`/dashboard/playlist/${playlistId}/${playlistTitle}`]);
+  }
 }

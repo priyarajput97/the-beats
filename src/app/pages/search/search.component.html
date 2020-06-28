@@ -2,10 +2,10 @@
   <section *ngIf="tracks && tracks.length" class="search-results">
     <h2 class="search-results-heading">Tracks</h2>
     <div class="search-results-list">
-      <div *ngFor="let track of tracks | slice:0:5" class="list-element">
-        <img class="list-element-image" [src]="track?.album?.images[0]?.url" (click)="seeTrack(track.id)">
+      <div *ngFor="let track of tracks | slice:0:5" class="list-element" (click)="seeTrack(track.id)">
+        <img class="list-element-image" [src]="track?.album?.images[0]?.url">
         <div class="list-element-info">
-          <span class="list-element-info-title" (click)="seeTrack(track.id)">{{track.name}}</span>
+          <span class="list-element-info-title">{{track.name}}</span>
           <span class="list-element-info-artist">{{track?.artists[0]?.name}}</span>
         </div>
       </div>
@@ -41,7 +41,8 @@
   <section *ngIf="playlists && playlists.length" class="search-results">
     <h2 class="search-results-heading">Playlists</h2>
     <div class="search-results-list">
-      <div *ngFor="let playlist of playlists | slice:0:5" class="list-element">
+      <div *ngFor="let playlist of playlists | slice:0:5" class="list-element"
+        (click)="seePlaylist(playlist.id, playlist.name)">
         <img class="list-element-image" [src]="playlist?.images[0]?.url">
         <div class="list-element-info">
           <span class="list-element-info-title">{{playlist.name}}</span>

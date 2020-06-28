@@ -1,13 +1,13 @@
 <main>
   <section class="banner-container">
     <div class="banner new-releases">
-      <h2 class="new-releases-heading">New Releases</h2>
-      <swiper *ngIf="newReleases && newReleases.length" [config]="corouselConfig">
-        <div *ngFor="let track of newReleases | slice:0:10" class="corousel">
+      <h2 class="new-releases-heading">New Songs</h2>
+      <swiper *ngIf="newSongs&& newSongs.length" [config]="corouselConfig">
+        <div *ngFor="let track of newSongs" class="corousel">
           <img class="corousel-image" [src]="track.images[0].url" />
           <div class="corousel-title">
             <span class="corousel-title-name">{{track.name}}</span>
-            <span class="corousel-title-info">{{track.type | titlecase}} by
+            <span class="corousel-title-info">{{track.album_type | titlecase}} by
               <span *ngFor="let artist of track.artists">{{artist.name}}&nbsp;</span>
             </span>
           </div>
@@ -15,7 +15,18 @@
       </swiper>
     </div>
     <div class="banner top-artists">
-      <h2 class="top-artists-heading">Top Artists</h2>
+      <h2 class="top-artists-heading">New Albums</h2>
+      <swiper *ngIf="newAlbums && newAlbums.length" [config]="corouselConfig">
+        <div *ngFor="let track of newAlbums" class="corousel">
+          <img class="corousel-image" [src]="track.images[0].url" />
+          <div class="corousel-title">
+            <span class="corousel-title-name">{{track.name}}</span>
+            <span class="corousel-title-info">{{track.album_type | titlecase}} by
+              <span *ngFor="let artist of track.artists">{{artist.name}}&nbsp;</span>
+            </span>
+          </div>
+        </div>
+      </swiper>
     </div>
   </section>
 
@@ -23,7 +34,8 @@
     <div *ngFor="let category of categories" class="category">
       <h1 class=" category-title">{{category.title}}</h1>
       <swiper *ngIf="category.tracks && category.tracks.length" [config]="swiperConfig">
-        <div *ngFor="let track of category.tracks | slice:0:15" class="tracks-container" (click)="seeTrack(track?.track?.id)">
+        <div *ngFor="let track of category.tracks | slice:0:15" class="tracks-container"
+          (click)="seeTrack(track?.track?.id)">
           <img class="track-image" [src]="track?.track?.album?.images[0].url" />
           <i class="fas fa-play fa-3x track-play-icon"></i>
           <div class="track-title">{{track?.track?.name}}</div>

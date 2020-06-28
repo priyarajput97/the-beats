@@ -41,14 +41,14 @@
     border-radius: 50%;
     margin-bottom: 1rem;
     cursor: pointer;
-    transition: all .3s linear;
+    transition: all .2s linear;
   }
 
   &-title {
     font-size: 1.4rem;
     font-weight: 400;
     cursor: pointer;
-    transition: all .3s linear;
+    transition: all .2s linear;
   }
 
   &-followers {
@@ -62,7 +62,7 @@
     }
 
     .artist-title {
-      color: $color-primary
+      color: $color-primary;
     }
   }
 }
@@ -70,6 +70,8 @@
 .list-element {
   display: flex;
   margin-bottom: 1rem;
+  cursor: pointer;
+  max-width: 400px;
 
   &-image {
     width: 5rem;
@@ -77,6 +79,7 @@
     min-width: 5rem;
     border-radius: 5px;
     margin-right: 1rem;
+    transition: all .2s linear;
   }
 
   &-info {
@@ -86,11 +89,24 @@
     &-title {
       font-size: 1.4rem;
       font-weight: 400;
+      transition: all .2s linear;
     }
 
     &-artist {
       font-size: 1.2rem;
       color: $color-grey-dark-2;
+    }
+  }
+
+  &:hover {
+    .list-element-image {
+      filter: brightness(0.5);
+    }
+
+    .list-element-info {
+      &-title {
+        color: $color-primary;
+      }
     }
   }
 }

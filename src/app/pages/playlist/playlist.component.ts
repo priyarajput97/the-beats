@@ -42,15 +42,15 @@ export class PlaylistComponent implements OnInit {
   }
 
   removeTrack(track) {
-    try {
-      this.dialog.open(ConfirmationPopupComponent, {
-        width: '350px',
-        autoFocus: false,
-        data: {
-          message: `Remove track '${track.track.name}' from '${this.playlistTitle}'?`
-        },
-        panelClass: 'custom-dialog-styles'
-      }).afterClosed().subscribe(async result => {
+    this.dialog.open(ConfirmationPopupComponent, {
+      width: '350px',
+      autoFocus: false,
+      data: {
+        message: `Remove track '${track.track.name}' from '${this.playlistTitle}'?`
+      },
+      panelClass: 'custom-dialog-styles'
+    }).afterClosed().subscribe(async result => {
+      try {
         if (result) {
           const body = {
             tracks: [{ uri: track.track.uri }]
@@ -59,10 +59,10 @@ export class PlaylistComponent implements OnInit {
           this.commonService.openSnackBar('Track Removed!', 2000);
           this.getPlaylist(this.playlistId);
         }
-      });
-    } catch (error) {
-      this.commonService.handleError(error);
-    }
+      } catch (error) {
+        this.commonService.handleError(error);
+      }
+    });
   }
 
   seeTrack(trackId) {

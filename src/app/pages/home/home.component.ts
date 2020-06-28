@@ -11,10 +11,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   corouselConfig = {
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -32,7 +28,8 @@ export class HomeComponent implements OnInit {
     freeMode: true,
   };
 
-  newReleases: Array<object> = [];
+  newSongs: Array<object> = [];
+  newAlbums: Array<object> = [];
 
   categories = [
     { id: 'pop', title: "Pop Songs" },
@@ -56,7 +53,8 @@ export class HomeComponent implements OnInit {
   async getNewReleases() {
     try {
       const { albums: newReleases } = await this.apiService.getNewReleases();
-      this.newReleases = newReleases && newReleases.items;
+      this.newSongs = newReleases && newReleases.items.filter(track => track.album_type === 'single');
+      this.newAlbums = newReleases && newReleases.items.filter(track => track.album_type === 'album');
     } catch (error) {
       this.commonService.handleError(error);
     }
