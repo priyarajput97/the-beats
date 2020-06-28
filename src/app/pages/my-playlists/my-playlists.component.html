@@ -6,9 +6,9 @@
     </div>
   </section>
 
-  <section class="playlists-container">
+  <section *ngIf="playlists?.length" class="playlists-container">
     <div *ngFor="let playlist of playlists" class="playlist">
-      <div class="playlist-info">
+      <div class="playlist-info" (click)="seePlaylist(playlist.id, playlist.name)">
         <span class="playlist-title">{{playlist.name}}</span>
         <span class="playlist-tracks-count">{{playlist.tracks?.total}}
           {{playlist.tracks?.total > 1 ? 'Songs' : 'Song'}}</span>
@@ -20,5 +20,9 @@
         <mat-icon>delete</mat-icon>
       </div>
     </div>
+  </section>
+
+  <section *ngIf="playlists && !playlists.length" class="empty-list">
+    You don't have any playlist.
   </section>
 </main>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -68,5 +68,15 @@ export class ApiService {
 
   addSongToPlaylist(playlistId, trackUri): Promise<any> {
     return this.http.post(`${environment.apiBase}/v1/playlists/${playlistId}/tracks?uris=${trackUri}`, {}).toPromise();
+  }
+
+  removeSongFromPlaylist(playlistId, body): Promise<any> {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      body
+    }
+    return this.http.delete(`${environment.apiBase}/v1/playlists/${playlistId}/tracks`, options).toPromise();
   }
 }

@@ -1,0 +1,18 @@
+<main>
+  <div class="playlist-title">{{playlistTitle}}</div>
+  <section *ngIf="playlist?.length" class="playlist-tracks">
+    <div *ngFor="let track of playlist" class="track">
+      <img class="track-image" [src]="track?.track?.album?.images[0]?.url" (click)="seeTrack(track?.track?.id)">
+      <div class="track-info">
+        <span class="track-info-title" (click)="seeTrack(track?.track?.id)">{{track?.track?.name}}</span>
+        <span class="track-info-artist">{{track?.track?.artists[0]?.name}}</span>
+      </div>
+      <div class="track-remove" (click)="removeTrack(track)">
+        <mat-icon>delete</mat-icon>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="playlist && !playlist.length" class="empty-list">
+    No Songs in this playlist.
+  </section>
+</main>

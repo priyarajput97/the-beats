@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreatePlaylistComponent } from 'src/app/modals/create-playlist/create-playlist.component';
 import { CommonService } from 'src/app/services/common.service';
 import { ConfirmationPopupComponent } from 'src/app/modals/confirmation-popup/confirmation-popup.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-playlists',
@@ -17,7 +18,8 @@ export class MyPlaylistsComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private commonService: CommonService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -83,5 +85,9 @@ export class MyPlaylistsComponent implements OnInit {
     } catch (error) {
       this.commonService.handleError(error);
     }
+  }
+
+  seePlaylist(playlistId, playlistTitle) {
+    playlistId && this.router.navigate([`/dashboard/playlist/${playlistId}/${playlistTitle}`]);
   }
 }
