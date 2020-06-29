@@ -89,6 +89,10 @@ input {
     color: $color-primary;
     font-size: 2rem;
     font-weight: 300;
+
+    @media (max-width: 500px) {
+      display: none;
+    }
   }
 
   &-image {

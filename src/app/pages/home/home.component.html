@@ -1,7 +1,7 @@
 <main>
   <section class="banner-container">
-    <div class="banner new-releases">
-      <h2 class="new-releases-heading">New Songs</h2>
+    <div class="banner new-songs">
+      <h2 class="new-songs-heading">New Songs</h2>
       <swiper *ngIf="newSongs&& newSongs.length" [config]="corouselConfig">
         <div *ngFor="let track of newSongs" class="corousel">
           <img class="corousel-image" [src]="track.images[0].url" />
@@ -14,8 +14,8 @@
         </div>
       </swiper>
     </div>
-    <div class="banner top-artists">
-      <h2 class="top-artists-heading">New Albums</h2>
+    <div class="banner new-albums">
+      <h2 class="new-albums-heading">New Albums</h2>
       <swiper *ngIf="newAlbums && newAlbums.length" [config]="corouselConfig">
         <div *ngFor="let track of newAlbums" class="corousel">
           <img class="corousel-image" [src]="track.images[0].url" />
@@ -28,6 +28,20 @@
         </div>
       </swiper>
     </div>
+  </section>
+
+  <section class="mobile-banner">
+    <swiper *ngIf="newReleases && newReleases.length" [config]="corouselConfig">
+      <div *ngFor="let track of newReleases" class="corousel">
+        <img class="corousel-image" [src]="track.images[0].url" />
+        <div class="corousel-title">
+          <span class="corousel-title-name">{{track.name}}</span>
+          <span class="corousel-title-info">{{track.album_type | titlecase}} by
+            <span *ngFor="let artist of track.artists">{{artist.name}}&nbsp;</span>
+          </span>
+        </div>
+      </div>
+    </swiper>
   </section>
 
   <section class="categories-container">

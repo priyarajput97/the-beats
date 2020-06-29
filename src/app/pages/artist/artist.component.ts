@@ -14,8 +14,8 @@ export class ArtistComponent implements OnInit {
   artistTracks: any;
 
   swiperConfig = {
-    slidesPerView: 5,
-    spaceBetween: 10,
+    slidesPerView: screen.width < 500 ? 3 : screen.width < 800 ? 4 : 5,
+    spaceBetween: screen.width < 500 ? 3 : screen.width < 800 ? 6 : 10,
     freeMode: true,
   };
 
@@ -28,6 +28,7 @@ export class ArtistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(window.innerWidth)
     this.getArtist(this.activatedRoute.snapshot.paramMap.get('id'));
   }
 

@@ -9,9 +9,28 @@
     flex: 50% 0 0;
     height: calc(100% - 10rem);
   }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 }
 
-.new-releases {
+.mobile-banner {
+
+  @media (max-width: 800px) {
+    height: 450px;
+  }
+
+  @media (max-width: 400px) {
+    height: 350px;
+  }
+
+  @media (min-width: 800px) {
+    display: none;
+  }
+}
+
+.new-songs {
   border-right: .5px solid $color-white;
   padding-right: 1rem;
 
@@ -23,7 +42,7 @@
   }
 }
 
-.top-artists {
+.new-albums {
   margin-left: 2px;
   border-left: .5px solid $color-white;
   align-self: flex-end;
@@ -43,6 +62,10 @@
     width: 100%;
     height: calc(100% - 6rem);
     transition: all .3s;
+
+    @media (max-width: 800px) {
+      height: 100%;
+    }
   }
 
   &-title {
@@ -61,6 +84,10 @@
 
     &-info {
       font-size: 2rem;
+    }
+
+    @media (max-width: 800px) {
+      opacity: 1;
     }
   }
 

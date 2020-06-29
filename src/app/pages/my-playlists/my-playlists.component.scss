@@ -3,6 +3,10 @@
 main {
   max-width: 80rem;
   margin: 2rem auto;
+
+  @media (max-width: 900px) {
+    margin: 2rem;
+  }
 }
 
 .header {

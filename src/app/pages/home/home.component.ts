@@ -23,11 +23,16 @@ export class HomeComponent implements OnInit {
   };
 
   swiperConfig = {
-    slidesPerView: 6,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: window.innerWidth < 500 ? 3 : window.innerWidth < 900 ? 5 : 6,
     spaceBetween: 10,
     freeMode: true,
   };
 
+  newReleases: Array<object> = [];
   newSongs: Array<object> = [];
   newAlbums: Array<object> = [];
 
@@ -53,6 +58,7 @@ export class HomeComponent implements OnInit {
   async getNewReleases() {
     try {
       const { albums: newReleases } = await this.apiService.getNewReleases();
+      this.newReleases = newReleases && newReleases.items;
       this.newSongs = newReleases && newReleases.items.filter(track => track.album_type === 'single');
       this.newAlbums = newReleases && newReleases.items.filter(track => track.album_type === 'album');
     } catch (error) {

@@ -3,6 +3,10 @@
 main {
   max-width: 80rem;
   margin: 2rem auto;
+
+  @media (max-width: 900px) {
+    margin: 2rem;
+  }
 }
 
 .playlist-title {
@@ -52,6 +56,8 @@ main {
     margin-left: auto;
     height: 4.5rem;
     width: 4.5rem;
+    min-height: 4.5rem;
+    min-width: 4.5rem;
     background-color: $color-white;
     cursor: pointer;
     color: $color-primary;
@@ -65,5 +71,9 @@ main {
     &:hover {
       box-shadow: 2px 4px 10px $color-black;
     }
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
   }
 }
